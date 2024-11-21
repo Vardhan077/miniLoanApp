@@ -3,16 +3,9 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 exports.register = async (req, res) => {
-  
-
   try {
-
     const { name, email, password, isAdmin } = req.body;
-
-
     // console.log('sign up data: ', req.body);
-
-
     if (!name || !email || !password) {
       return res.status(400).json({
         success: false,
@@ -60,7 +53,7 @@ exports.register = async (req, res) => {
 exports.login = async (req, res) => {
 
 
-  // console.log('login data: ', req.body);
+  console.log('login data: ', req.body);
   try {
     const { email, password, isAdmin } = req.body;
 
@@ -75,6 +68,7 @@ exports.login = async (req, res) => {
       email,
       isAdmin,
     });
+    console.log(user,'is ssss')
 
     if (!user) {
       return res.status(400).json({
